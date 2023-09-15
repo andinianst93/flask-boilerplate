@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block meta_title %}Register{% endblock %}
+
+{% block main %}
+<main class="flex h-screen md:h-full flex-col justify-center px-6 py-[72px] lg:px-8">
+    <section class="sm:mx-auto sm:w-full sm:max-w-sm">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Register</h2>
+        </div>
+    </section>
+    <section class="mt-10 sm:mx-auto sm:w-full sm:max-w-md">
+        <form method="post" class="text-sm text-gray-600">
+            {{ auth_form.hidden_tag() }}
+            
+            <div class="grid grid-cols-2 gap-3 items-center">
+
+                {{ auth_form.username.label }}
+                {{ auth_form.username(class="block col-span-4 w-full rounded-md border-0 py-1.5 text-gray-900 px-3 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6") }}
+
+                {{ auth_form.email.label }}
+                {{ auth_form.email(class="block col-span-4 w-full rounded-md border-0 py-1.5 text-gray-900 px-3 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6") }}
+
+                {{ auth_form.password.label }}
+                {{ auth_form.password(class="block col-span-4 w-full rounded-md border-0 py-1.5 text-gray-900 px-3 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6") }}
+
+                {{ auth_form.confirm_password.label(class="col-span-3") }}
+                {{ auth_form.confirm_password(class="block col-span-4 w-full rounded-md border-0 py-1.5 text-gray-900 px-3 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6") }}
+
+                {{ auth_form.first_name.label(class="col-span-3") }}
+                {{ auth_form.first_name(class="block col-span-4 w-full rounded-md border-0 py-1.5 text-gray-900 px-3 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6") }}
+
+                {{ auth_form.last_name.label(class="col-span-3") }}
+                {{ auth_form.last_name(class="block col-span-4 w-full rounded-md border-0 py-1.5 text-gray-900 px-3 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6") }}
+
+                {{ auth_form.organization.label }}
+                {{ auth_form.organization(class="block  col-span-4 w-full rounded-md border-0 py-1.5 text-gray-900 px-3 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6") }}
+            </div>
+            <div class="mt-6">
+                {{ auth_form.submit(class="flex w-full justify-center rounded-md bg-gray-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600") }}
+            </div>
+        </form>
+    </section>
+</main>
+{% endblock %}
