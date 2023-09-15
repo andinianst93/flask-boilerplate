@@ -70,13 +70,3 @@ def dashboard():
     user = User.query.get(session["user_id"])
 
     return render_template("dashboard.html", user=user)
-
-@main.route('/add-client', methods=['GET', 'POST'])
-@login_required
-def add_client():
-    return render_template("add-client.html")
-
-@main.route('/add-team', methods=['GET', 'POST'])
-@login_required
-def add_team():
-    return render_template("add-team.html")
